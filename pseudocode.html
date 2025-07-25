@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudocode System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav {
+            background: rgba(30, 60, 114, 0.9);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .content {
+            padding: 2rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid #667eea;
+        }
+
+        .section h2 {
+            color: #1e3c72;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .section h3 {
+            color: #2a5298;
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .code-block {
+            background: linear-gradient(135deg, #2d3748, #1a202c);
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            overflow-x: auto;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+            border: 1px solid #4a5568;
+        }
+
+        .code-block pre {
+            margin: 0;
+            white-space: pre-wrap;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin: 1rem 0;
+            border-radius: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        tr:hover {
+            background: rgba(102, 126, 234, 0.05);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            border-left: 5px solid #e17055;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight-box h4 {
+            color: #2d3436;
+            margin-bottom: 0.5rem;
+        }
+
+        .principles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .principle-card {
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+
+        .principle-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(116, 185, 255, 0.4);
+        }
+
+        .principle-card h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer {
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            display: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            
+            .content {
+                padding: 1rem;
+            }
+            
+            .section {
+                padding: 1rem;
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>~English Revised Pseudocode System</h1>
+            <p class="subtitle">Natural Language Programming with Embedded Flowchart Documentation</p>
+        </header>
+
+        <nav class="nav">
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#statements">Statements</a></li>
+                <li><a href="#notation">Notation</a></li>
+                <li><a href="#error-handling">Error Handling</a></li>
+                <li><a href="#examples">Examples</a></li>
+            </ul>
+        </nav>
+
+        <div class="content">
+            <section id="overview" class="section animate-fade-in">
+                <h2>Overview</h2>
+                <p>This pseudocode system is based on the ~English revised esolang syntax, designed to create algorithms that read like natural English while maintaining proper control flow documentation through embedded flowchart notation in comments.</p>
+                
+                <div class="principles">
+                    <div class="principle-card">
+                        <h4>Natural Language</h4>
+                        <p>Code reads like English sentences</p>
+                    </div>
+                    <div class="principle-card">
+                        <h4>Loose Syntax</h4>
+                        <p>Flexible sentence structure with multiple keyword synonyms</p>
+                    </div>
+                    <div class="principle-card">
+                        <h4>Embedded Flow Documentation</h4>
+                        <p>Flowchart symbols embedded in comments for structure clarity</p>
+                    </div>
+                    <div class="principle-card">
+                        <h4>Optional Numbering</h4>
+                        <p>Simple sequential numbering system for complex algorithms</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="statements" class="section animate-fade-in">
+                <h2>Statement Types</h2>
+                
+                <h3>1. Declaration</h3>
+                <p>Creates new variables/objects with generic types.</p>
+                <div class="code-block">
+                    <pre>Create a variable named username.
+Make another variable called age.
+Declare a new object named userProfile.</pre>
+                </div>
+
+                <h3>2. Display/Output</h3>
+                <p>Shows numbers, strings, or data to user.</p>
+                <div class="code-block">
+                    <pre>Display "Hello world!" and a newline.
+Show "Your name is ", the username, "." and a newline.
+Print the age and another newline.</pre>
+                </div>
+
+                <h3>3. Function Calls</h3>
+                <p>Calls built-in or user-defined functions.</p>
+                <div class="code-block">
+                    <pre>Set the value of age to call function "to number" with call another function "ask".
+Vary the value of username by call the function "ask".</pre>
+                </div>
+
+                <h3>4. While Loops</h3>
+                <p>Provides loop functionality.</p>
+                <div class="code-block">
+                    <pre>While the age is smaller than 0 do:
+    Display "Invalid age entered." and a newline.
+That's all.</pre>
+                </div>
+
+                <h3>5. If...Else Conditionals</h3>
+                <p>Conditional branching statements.</p>
+                <div class="code-block">
+                    <pre>If the username equals "admin" then:
+    Display "Welcome administrator!" and a newline.
+That's all.
+Else, then:
+    Display "Welcome user!" and a newline.
+That's all.</pre>
+                </div>
+
+                <h3>6. Stop</h3>
+                <p>Terminates the program.</p>
+                <div class="code-block">
+                    <pre>Stop the program.
+Stop this program.</pre>
+                </div>
+
+                <h3>7. Comments/Notes</h3>
+                <p>Documentation and flowchart notation.</p>
+                <div class="code-block">
+                    <pre>Note: This validates user input
+Note: [DECISION] Check if username exists</pre>
+                </div>
+            </section>
+
+            <section id="notation" class="section animate-fade-in">
+                <h2>Flowchart Notation System</h2>
+                
+                <h3>Basic Symbols</h3>
+                <p>Embedded within Note statements to document control flow:</p>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Meaning</th>
+                                <th>Usage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>[START]</code></td>
+                                <td>Program beginning</td>
+                                <td><code>Note: [START] Initialize application</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>[END]</code></td>
+                                <td>Program termination</td>
+                                <td><code>Note: [END] Close application</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>[INPUT]</code></td>
+                                <td>Data input operations</td>
+                                <td><code>Note: [INPUT] Get user credentials</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>[OUTPUT]</code></td>
+                                <td>Data output operations</td>
+                                <td><code>Note: [OUTPUT] Display results</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>[PROCESS]</code></td>
+                                <td>General processing</td>
+                                <td><code>Note: [PROCESS] Calculate total</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>[DECISION]</code></td>
+                                <td>Conditional branching</td>
+                                <td><code>Note: [DECISION] Valid password?</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>File System and Build Notation</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Symbol</th>
+                                <th>Meaning</th>
+                                <th>Usage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>[FOLDER]</code></td>
+                                <td>Directory/folder operations</td>
+                                <td><code>Note: [FOLDER] Create project structure</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>[FILE]</code></td>
+                                <td>File operations</td>
+                                <td><code>Note: [FILE] Generate source code</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>[INI]</code></td>
+                                <td>Configuration file content</td>
+                                <td><code>Note: [INI] IDE project settings</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>[BFB]</code></td>
+                                <td>Batch File Begin</td>
+                                <td><code>Note: [BFB] Start Windows batch script</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>[MFB]</code></td>
+                                <td>Makefile Begin</td>
+                                <td><code>Note: [MFB] Start Makefile content</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="error-handling" class="section animate-fade-in">
+                <h2>System Error Handling Protocol</h2>
+                <p>All programs written in the ~English Revised Pseudocode System follow a standardized error handling protocol to ensure consistent error management and debugging across all implementations:</p>
+                
+                <div class="highlight-box">
+                    <h4>Error Response Procedure</h4>
+                    <ol>
+                        <li><strong>On Error</strong>: When any error condition is detected during program execution</li>
+                        <li><strong>Pause Program</strong>: Immediately halt program execution to prevent cascading failures</li>
+                        <li><strong>Self Diagnosis</strong>: If the program has diagnostic capabilities, perform automated system checks to gather additional context about the error state</li>
+                        <li><strong>User Interaction</strong>: Prompt the user for input and feedback regarding the error condition</li>
+                        <li><strong>Report Generation</strong>: Create a comprehensive error report with date, timestamp, and all relevant information</li>
+                        <li><strong>Repository Logging</strong>: Automatically commit the error report to <code>error_log.md</code> in the appropriate folder of the relevant GitHub repository</li>
+                    </ol>
+                </div>
+
+                <h3>Protocol Benefits</h3>
+                <ul>
+                    <li><strong>Consistent Error Handling</strong>: All programs behave predictably when errors occur</li>
+                    <li><strong>User Engagement</strong>: Users become active participants in the debugging process</li>
+                    <li><strong>Comprehensive Documentation</strong>: Every error is properly logged with full context</li>
+                    <li><strong>Repository Integration</strong>: Error tracking becomes part of the project's version control history</li>
+                    <li><strong>Continuous Improvement</strong>: Error patterns can be analyzed over time to improve system reliability</li>
+                </ul>
+            </section>
+
+            <section id="examples" class="section animate-fade-in">
+                <h2>Complete Project Example</h2>
+                <p>Here's a comprehensive example showing how to create a complete C project with IDE integration and build automation:</p>
+                
+                <div class="code-block">
+                    <pre>Note: C Project with Full IDE Integration and Build Automation v2.0 - 2025-07-25
+Note: Purpose: Demonstrate complete project setup with IDE configs and build scripts
+
+Note: [START] Begin comprehensive project creation
+
+Note: [1-FOLDER] Create complete directory structure
+Create a folder named CalculatorProject.
+    Note: [FOLDER] Source code organization
+    Inside CalculatorProject, create a folder named src.
+        Note: [FILE] Main application entry point
+        Inside src, create a file named main.c.
+        Note: [FILE] Calculator operations
+        Inside src, create a file named calculator.c.
+    Note: [FOLDER] Header file organization
+    Inside CalculatorProject, create a folder named include.
+        Note: [FILE] Calculator function declarations
+        Inside include, create a file named calculator.h.
+    Note: [FOLDER] Build system organization
+    Inside CalculatorProject, create a folder named build.
+        Inside build, create a folder named obj.
+        Inside build, create a folder named bin.
+
+Note: [2-INI] Configure IDE project files
+Set the contents of config/calculator.geany to include these settings:
+    Display "[project]" as a line.
+    Display "name=Calculator Project" as a line.
+    Display "base_path=.." as a line.
+    Display
