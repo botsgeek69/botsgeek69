@@ -235,10 +235,26 @@ Sentences can end with:
 - Question mark (?)
 
 ### Keyword Synonyms
-Multiple ways to express the same concept:
-- Display/Show/Print
-- Create/Make/Declare
-- Set/Vary/Change
+Multiple ways to express the same concept, with semantic meaning based on context:
+
+#### Output Operations
+- **`Display`** → Print debugging, temporary output, informal logging
+- **`Show`** → Formal program output, user interface elements  
+- **`Print`** → Reports, formatted output, final results
+
+**Example Usage:**
+```pseudocode
+Display "Debug: username is ", username, "."     // Temporary debug output
+Show "Your account balance is $", balance, "."   // User interface display
+Print "Monthly Report - Generated ", date, "."   // Formal document output
+```
+
+#### Variable Operations  
+- **`Create/Make/Declare`** → Variable initialization
+- **`Set/Vary/Change`** → Variable modification
+
+#### Programming Context
+The natural language approach means keyword choice carries semantic meaning about the programmer's intent. `Display` statements naturally stand out when scanning code for debug statements to remove, while `Show` and `Print` indicate more permanent program functionality.
 
 ### Natural Language Flow
 Code should read as naturally as possible:
@@ -509,23 +525,4 @@ Set the contents of Makefile to include these build rules:
     Display "LDFLAGS = -lm" as a line.
     Display "" as a line.
     Display "SRCDIR = src" as a line.
-    Display "INCDIR = include" as a line.
-    Display "OBJDIR = build/obj" as a line.
-    Display "BINDIR = build/bin" as a line.
-    Display "" as a line.
-    Display "SOURCES = $(wildcard $(SRCDIR)/*.c)" as a line.
-    Display "OBJECTS = $(SOURCES:$(SRCDIR)/%.c=$(OBJDIR)/%.o)" as a line.
-    Display "TARGET = $(BINDIR)/$(PROJECT_NAME)" as a line.
-    Display "" as a line.
-    Display ".PHONY: all clean directories debug release test" as a line.
-    Display "" as a line.
-    Display "all: directories $(TARGET)" as a line.
-Note: [MFE] End of Makefile content
-
-Note: [5-BFB] Create Windows batch automation
-Set the contents of scripts/build.bat to include these commands:
-    Display "@echo off" as a line.
-    Display "title Calculator Project Build System" as a line.
-    Display "cd /d \"%~dp0..\"" as a line.
-    Display "echo ================================" as a line.
-    Display "echo Calc
+    Display "INCDIR
