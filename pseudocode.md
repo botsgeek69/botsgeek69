@@ -1,12 +1,7 @@
-# Pseudocode System
+# Pseudocode System: Natural Language Programming with Embedded Flowchart Documentation
 
-> **Natural Language Programming with Embedded Flowchart Documentation**
-
-[![Version](https://img.shields.io/badge/version-2.0-blue.svg)](https://github.com/user/repo)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Documentation](https://img.shields.io/badge/docs-complete-brightgreen.svg)](#documentation)
-
----
+**Version:** Latest  
+**License:** Documentation  
 
 ## 📋 Table of Contents
 
@@ -14,6 +9,7 @@
 - [Core Principles](#core-principles)
 - [Statement Types](#statement-types)
 - [Built-in Functions & Constants](#built-in-functions--constants)
+- [Glossary of Elemental Units (EU) and Data Structures (DS)](#glossary-of-elemental-units-eu-and-data-structures-ds)
 - [Flowchart Notation System](#flowchart-notation-system)
 - [System Error Handling Protocol](#system-error-handling-protocol)
 - [Syntax Features](#syntax-features)
@@ -22,37 +18,32 @@
 - [Contributing](#contributing)
 - [License](#license)
 
----
-
 ## 🎯 Overview
 
 This pseudocode system is based on the ~English revised esolang syntax, designed to create algorithms that read like natural English while maintaining proper control flow documentation through embedded flowchart notation in comments.
 
 The system bridges the gap between human-readable documentation and executable pseudocode, making it ideal for:
+
 - **Educational contexts** where beginners need to understand programming logic
-- **Algorithm documentation** that remains readable by non-technical stakeholders
+- **Algorithm documentation** that remains readable by non-technical stakeholders  
 - **System design** where complex workflows need clear documentation
 - **Rapid prototyping** before implementing in production languages
-
----
 
 ## 🚀 Core Principles
 
 | Principle | Description |
 |-----------|-------------|
-| **🗣️ Natural Language** | Code reads like English sentences |
-| **🔄 Loose Syntax** | Flexible sentence structure with multiple keyword synonyms |
-| **📊 Embedded Flow Documentation** | Flowchart symbols embedded in comments for structure clarity |
-| **🔢 Optional Numbering** | Simple sequential numbering system for complex algorithms |
-
----
+| 🗣️ **Natural Language** | Code reads like English sentences |
+| 🔄 **Loose Syntax** | Flexible sentence structure with multiple keyword synonyms |
+| 📊 **Embedded Flow Documentation** | Flowchart symbols embedded in comments for structure clarity |
+| 🔢 **Optional Numbering** | Simple sequential numbering system for complex algorithms |
 
 ## 📝 Statement Types
 
 ### 1. Declaration
 Creates new variables/objects with generic types.
 
-```pseudocode
+```
 Create a variable named username.
 Make another variable called age.
 Declare a new object named userProfile.
@@ -61,7 +52,7 @@ Declare a new object named userProfile.
 ### 2. Display/Output
 Shows numbers, strings, or data to user.
 
-```pseudocode
+```
 Display "Hello world!" and a newline.
 Show "Your name is ", the username, "." and a newline.
 Print the age and another newline.
@@ -70,7 +61,7 @@ Print the age and another newline.
 ### 3. Function Calls
 Calls built-in or user-defined functions.
 
-```pseudocode
+```
 Set the value of age to call function "to number" with call another function "ask".
 Vary the value of username by call the function "ask".
 ```
@@ -78,7 +69,7 @@ Vary the value of username by call the function "ask".
 ### 4. While Loops
 Provides loop functionality.
 
-```pseudocode
+```
 While the age is smaller than 0 do:
     Display "Invalid age entered." and a newline.
 That's all.
@@ -87,7 +78,7 @@ That's all.
 ### 5. If...Else Conditionals
 Conditional branching statements.
 
-```pseudocode
+```
 If the username equals "admin" then:
     Display "Welcome administrator!" and a newline.
 That's all.
@@ -99,7 +90,7 @@ That's all.
 ### 6. Stop
 Terminates the program.
 
-```pseudocode
+```
 Stop the program.
 Stop this program.
 ```
@@ -107,31 +98,73 @@ Stop this program.
 ### 7. Comments/Notes
 Documentation and flowchart notation.
 
-```pseudocode
+```
 Note: This validates user input
 Note: [DECISION] Check if username exists
 ```
 
----
-
 ## 🛠️ Built-in Functions & Constants
 
 ### Functions
-- `ask` - Prompt user for input
-- `get input` - Get user input
-- `to number` - Convert to numeric type
-- `to string` - Convert to string type
+- **ask** - Prompt user for input
+- **get input** - Get user input
+- **to number** - Convert to numeric type
+- **to string** - Convert to string type
 
 ### Constants
-- `one` instead of 1
-- `zero` instead of 0
+- **one** instead of 1
+- **zero** instead of 0
 - Other numeric words as needed
 
 ### Special References
-- `it` - References the last-used variable
-- `its` - Possessive form for object members
+- **it** - References the last-used variable
+- **its** - Possessive form for object members
 
----
+## 📚 Glossary of Elemental Units (EU) and Data Structures (DS)
+
+The following table provides abbreviations used to denote elemental units (building blocks) and complex data structures that can be referenced within your pseudocode. These enable concise, standardized references to common computer science concepts, integrating seamlessly with the natural language flow.
+
+| Abbreviation | Name | Description |
+|--------------|------|-------------|
+| **EU-NODE** | Node | Basic building block containing data and pointers/references |
+| **EU-EDGE** | Edge | Connection/link between nodes; may be directional or weighted |
+| **EU-PTR** | Pointer/Reference | Memory address or reference to another component |
+| **EU-KVP** | Key–Value Pair | Fundamental binding of a key to a value in maps or hash tables |
+| **DS-ARR** | Array | Fixed-size or dynamic indexed collection |
+| **DS-LIST** | Linked List | Linear sequence of nodes connected by pointers |
+| **DS-BST** | Binary Search Tree | Ordered binary tree for efficient lookup |
+| **DS-GRAPHADJ** | Adjacency List/Matrix | Graph representation using lists or matrices |
+| **DS-HASHMAP** | Hash Map | Key-value store with hashing for fast access |
+| **DS-STACK** | Stack | LIFO data structure |
+| **DS-QUEUE** | Queue | FIFO data structure |
+
+### Usage Conventions in Pseudocode
+
+**Declaration:** Use the abbreviations when declaring variables or objects:
+```
+Create a variable named currentNode of type EU-NODE.
+Declare a new DS-LIST called userList.
+```
+
+**Assignment and Function Calls:**
+```
+Set the value of currentNode to call function "get head" of DS-LIST userList.
+```
+
+**Embedded Documentation with Flowchart Notation:**
+```
+Note: [DECISION][EU-NODE] Check if current node is null
+If currentNode equals null then:
+    Note: [OUTPUT] Display "End of list reached."
+    Display "No more nodes." and a newline.
+That's all.
+```
+
+**Error Handling:**
+```
+Note: [ERROR][EU-KVP] Invalid key-value pair insertion
+Display "Error: Invalid key." and a newline.
+```
 
 ## 📊 Flowchart Notation System
 
@@ -174,7 +207,7 @@ Embedded within Note statements to document control flow:
 ### Optional Numbering System
 For complex algorithms requiring clear execution order:
 
-```pseudocode
+```
 Note: [1-START] Begin user authentication
 Note: [2-INPUT] Collect username and password
 Note: [3-DECISION] Credentials valid?
@@ -189,42 +222,45 @@ Note: [4-END] Complete authentication process
 - Keep numbering simple to maintain readability
 - Consider renumbering complexity when inserting steps
 
----
+> **Note:** You may now optionally embed abbreviation tags in flowchart notes for enhanced documentation, e.g., `Note: [PROCESS][DS-BST] Insert key into search tree node`
 
 ## ⚠️ System Error Handling Protocol
 
-> **🔒 All programs written in the ~English Revised Pseudocode System follow a standardized error handling protocol to ensure consistent error management and debugging across all implementations.**
+🔒 All programs written in the ~English Revised Pseudocode System follow a standardized error handling protocol to ensure consistent error management and debugging across all implementations.
 
 ### Error Response Procedure
 
-1. **🚨 On Error**: When any error condition is detected during program execution
-2. **⏸️ Pause Program**: Immediately halt program execution to prevent cascading failures
-3. **🔍 Self Diagnosis**: If the program has diagnostic capabilities, perform automated system checks to gather additional context about the error state
-4. **👤 User Interaction**: Prompt the user for input and feedback regarding the error condition, including:
+1. **🚨 On Error:** When any error condition is detected during program execution
+2. **⏸️ Pause Program:** Immediately halt program execution to prevent cascading failures
+3. **🔍 Self Diagnosis:** If the program has diagnostic capabilities, perform automated system checks to gather additional context about the error state
+4. **👤 User Interaction:** Prompt the user for input and feedback regarding the error condition, including:
    - What operation was being performed when the error occurred
    - Any unusual circumstances or recent changes
    - User's assessment of the error severity and impact
-5. **📋 Report Generation**: Create a comprehensive error report containing:
+5. **📋 Report Generation:** Create a comprehensive error report containing:
    - Complete error details and stack trace information
    - User feedback and input collected in step 4
    - Current date and timestamp
    - System environment information
    - Program state and variable values at time of error
    - Relevant configuration settings and file paths
-6. **📤 Repository Logging**: Automatically commit the error report to `error_log.md` in the appropriate folder of the relevant GitHub repository for the project
+6. **📤 Repository Logging:** Automatically commit the error report to `error_log.md` in the appropriate folder of the relevant GitHub repository for the project
 
 ### Error Report Format
 Error reports should be structured as markdown entries in `error_log.md` with consistent formatting for easy analysis and tracking of recurring issues.
 
 ### Protocol Benefits
+- ✅ **Consistent Error Handling:** All programs behave predictably when errors occur
+- 🤝 **User Engagement:** Users become active participants in the debugging process
+- 📚 **Comprehensive Documentation:** Every error is properly logged with full context
+- 🔗 **Repository Integration:** Error tracking becomes part of the project's version control history
+- 📈 **Continuous Improvement:** Error patterns can be analyzed over time to improve system reliability
 
-- ✅ **Consistent Error Handling**: All programs behave predictably when errors occur
-- 🤝 **User Engagement**: Users become active participants in the debugging process
-- 📚 **Comprehensive Documentation**: Every error is properly logged with full context
-- 🔗 **Repository Integration**: Error tracking becomes part of the project's version control history
-- 📈 **Continuous Improvement**: Error patterns can be analyzed over time to improve system reliability
-
----
+**Example:**
+```
+Note: [ERROR][DS-HASHMAP] Collision handling failure during insertion
+Display "Hash map insertion error." and a newline.
+```
 
 ## ✨ Syntax Features
 
@@ -237,29 +273,29 @@ Sentences can end with:
 ### Keyword Synonyms
 Multiple ways to express the same concept, with semantic meaning based on context:
 
-#### Output Operations
-- **`Display`** → Print debugging, temporary output, informal logging
-- **`Show`** → Formal program output, user interface elements  
-- **`Print`** → Reports, formatted output, final results
+**Output Operations:**
+- **Display** → Print debugging, temporary output, informal logging
+- **Show** → Formal program output, user interface elements  
+- **Print** → Reports, formatted output, final results
 
 **Example Usage:**
-```pseudocode
-Display "Debug: username is ", username, "."     // Temporary debug output
-Show "Your account balance is $", balance, "."   // User interface display
-Print "Monthly Report - Generated ", date, "."   // Formal document output
+```
+Display "Debug: username is ", username, "."  // Temporary debug output
+Show "Your account balance is $", balance, "." // User interface display
+Print "Monthly Report - Generated ", date, "." // Formal document output
 ```
 
-#### Variable Operations  
-- **`Create/Make/Declare`** → Variable initialization
-- **`Set/Vary/Change`** → Variable modification
+**Variable Operations:**
+- **Create/Make/Declare** → Variable initialization
+- **Set/Vary/Change** → Variable modification
 
-#### Programming Context
-The natural language approach means keyword choice carries semantic meaning about the programmer's intent. `Display` statements naturally stand out when scanning code for debug statements to remove, while `Show` and `Print` indicate more permanent program functionality.
+### Programming Context
+The natural language approach means keyword choice carries semantic meaning about the programmer's intent. Display statements naturally stand out when scanning code for debug statements to remove, while Show and Print indicate more permanent program functionality.
 
 ### Natural Language Flow
 Code should read as naturally as possible:
 
-```pseudocode
+```
 Note: [START] Begin password validation
 Create a variable named password.
 Note: [INPUT] Get user password
@@ -276,148 +312,140 @@ That's all.
 Note: [END] Password validation complete
 ```
 
----
-
 ## 📁 File System Structure Documentation
 
 ### Folder and File Tree Notation
 The system supports nested folder/file structure documentation for creating complete project hierarchies:
 
-```pseudocode
+```
 Note: [FOLDER] Project root directory structure
 Create a folder named MyProject.
-    Note: [FOLDER] Source code directory
-    Inside MyProject, create a folder named src.
-        Note: [FILE] Main application file
-        Inside src, create a file named main.c.
-        Note: [FILE] Utility functions
-        Inside src, create a file named utils.c.
-    Note: [FOLDER] Header files directory
-    Inside MyProject, create a folder named include.
-        Note: [FILE] Function declarations
-        Inside include, create a file named utils.h.
-    Note: [FOLDER] Build output directory
-    Inside MyProject, create a folder named build.
-        Note: [FOLDER] Object files subdirectory
-        Inside build, create a folder named obj.
-        Note: [FOLDER] Executable files subdirectory
-        Inside build, create a folder named bin.
-    Note: [FOLDER] Configuration directory
-    Inside MyProject, create a folder named config.
-        Note: [INI] IDE project configuration
-        Inside config, create a file named project.ini.
+Note: [FOLDER] Source code directory
+Inside MyProject, create a folder named src.
+Note: [FILE] Main application file
+Inside src, create a file named main.c.
+Note: [FILE] Utility functions
+Inside src, create a file named utils.c.
+Note: [FOLDER] Header files directory
+Inside MyProject, create a folder named include.
+Note: [FILE] Function declarations
+Inside include, create a file named utils.h.
+Note: [FOLDER] Build output directory
+Inside MyProject, create a folder named build.
+Note: [FOLDER] Object files subdirectory
+Inside build, create a folder named obj.
+Note: [FOLDER] Executable files subdirectory
+Inside build, create a folder named bin.
+Note: [FOLDER] Configuration directory
+Inside MyProject, create a folder named config.
+Note: [INI] IDE project configuration
+Inside config, create a file named project.ini.
 ```
 
-> **💡 This notation allows programs like Manus to automatically generate complete file/folder trees in the correct order for platforms like GitHub.**
-
----
+💡 This notation allows programs like Manus to automatically generate complete file/folder trees in the correct order for platforms like GitHub.
 
 ## 🛠️ IDE Configuration Files
 
 ### INI File Content Notation
 For IDE-specific configuration files used by Embarcadero, Geany, and similar development environments:
 
-```pseudocode
+```
 Note: [INI] Embarcadero C++ Builder project configuration
 Set the contents of project.bpr to include these configuration sections:
-    Display "[Compiler]" as a line.
-    Display "Defines=" as a line.
-    Display "IncludePath=include;src" as a line.
-    Display "LibraryPath=lib;build" as a line.
-    Display "OutputDir=build\\bin" as a line.
-    Display "" as a line.
-    Display "[Linker]" as a line.
-    Display "Libraries=user32.lib;kernel32.lib" as a line.
-    Display "OutputFile=MyProject.exe" as a line.
+Display "[Compiler]" as a line.
+Display "Defines=" as a line.
+Display "IncludePath=include;src" as a line.
+Display "LibraryPath=lib;build" as a line.
+Display "OutputDir=build\bin" as a line.
+Display "" as a line.
+Display "[Linker]" as a line.
+Display "Libraries=user32.lib;kernel32.lib" as a line.
+Display "OutputFile=MyProject.exe" as a line.
 
 Note: [INI] Geany project configuration
 Set the contents of MyProject.geany to include these settings:
-    Display "[project]" as a line.
-    Display "name=MyProject" as a line.
-    Display "base_path=." as a line.
-    Display "description=C Project with Build Automation" as a line.
-    Display "" as a line.
-    Display "[build-menu]" as a line.
-    Display "FT_00_LB=_Compile" as a line.
-    Display "FT_00_CM=gcc -c \"%f\" -Iinclude -o build/obj/\"%e.o\"" as a line.
-    Display "FT_01_LB=_Build" as a line.
-    Display "FT_01_CM=make -f Makefile" as a line.
-    Display "FT_02_LB=_Execute" as a line.
-    Display "FT_02_CM=./build/bin/MyProject" as a line.
+Display "[project]" as a line.
+Display "name=MyProject" as a line.
+Display "base_path=." as a line.
+Display "description=C Project with Build Automation" as a line.
+Display "" as a line.
+Display "[build-menu]" as a line.
+Display "FT_00_LB=_Compile" as a line.
+Display "FT_00_CM=gcc -c \"%f\" -Iinclude -o build/obj/\"%e.o\"" as a line.
+Display "FT_01_LB=_Build" as a line.
+Display "FT_01_CM=make -f Makefile" as a line.
+Display "FT_02_LB=_Execute" as a line.
+Display "FT_02_CM=./build/bin/MyProject" as a line.
 ```
-
----
 
 ## 🚀 Build Automation Scripts
 
 ### Batch File Content
 Windows batch files that automatically execute Makefiles when double-clicked or run from CMD:
 
-```pseudocode
+```
 Note: [BFB] Windows build automation batch file
 Create a file named build.bat.
 Set the contents of build.bat to include these commands:
-    Display "@echo off" as a line.
-    Display "echo Starting automated build process..." as a line.
-    Display "if not exist build mkdir build" as a line.
-    Display "if not exist build\\obj mkdir build\\obj" as a line.
-    Display "if not exist build\\bin mkdir build\\bin" as a line.
-    Display "echo Executing Makefile..." as a line.
-    Display "make -f Makefile" as a line.
-    Display "if %errorlevel% equ 0 (" as a line.
-    Display "    echo Build completed successfully!" as a line.
-    Display "    echo Executable created: build\\bin\\MyProject.exe" as a line.
-    Display ") else (" as a line.
-    Display "    echo Build failed with errors!" as a line.
-    Display "    pause" as a line.
-    Display "    exit /b 1" as a line.
-    Display ")" as a line.
-    Display "pause" as a line.
+Display "@echo off" as a line.
+Display "echo Starting automated build process..." as a line.
+Display "if not exist build mkdir build" as a line.
+Display "if not exist build\obj mkdir build\obj" as a line.
+Display "if not exist build\bin mkdir build\bin" as a line.
+Display "echo Executing Makefile..." as a line.
+Display "make -f Makefile" as a line.
+Display "if %errorlevel% equ 0 (" as a line.
+Display "  echo Build completed successfully!" as a line.
+Display "  echo Executable created: build\bin\MyProject.exe" as a line.
+Display ") else (" as a line.
+Display "  echo Build failed with errors!" as a line.
+Display "  pause" as a line.
+Display "  exit /b 1" as a line.
+Display ")" as a line.
+Display "pause" as a line.
 Note: [BFE] End of batch file content
 ```
 
 ### Makefile Content
 Complete Makefiles with proper targets and dependencies:
 
-```pseudocode
+```
 Note: [MFB] Main project Makefile
 Create a file named Makefile.
 Set the contents of Makefile to include these build rules:
-    Display "# Makefile for MyProject" as a line.
-    Display "CC=gcc" as a line.
-    Display "CFLAGS=-Wall -Wextra -std=c99 -Iinclude" as a line.
-    Display "SRCDIR=src" as a line.
-    Display "OBJDIR=build/obj" as a line.
-    Display "BINDIR=build/bin" as a line.
-    Display "" as a line.
-    Display "SOURCES=$(wildcard $(SRCDIR)/*.c)" as a line.
-    Display "OBJECTS=$(SOURCES:$(SRCDIR)/%.c=$(OBJDIR)/%.o)" as a line.
-    Display "TARGET=$(BINDIR)/MyProject" as a line.
-    Display "" as a line.
-    Display ".PHONY: all clean directories" as a line.
-    Display "" as a line.
-    Display "all: directories $(TARGET)" as a line.
-    Display "" as a line.
-    Display "directories:" as a line.
-    Display "\t@mkdir -p $(OBJDIR) $(BINDIR)" as a line.
-    Display "" as a line.
-    Display "$(TARGET): $(OBJECTS)" as a line.
-    Display "\t@echo \"Linking $(TARGET)...\"" as a line.
-    Display "\t$(CC) $(OBJECTS) -o $@" as a line.
-    Display "\t@echo \"Build completed: $(TARGET)\"" as a line.
+Display "# Makefile for MyProject" as a line.
+Display "CC=gcc" as a line.
+Display "CFLAGS=-Wall -Wextra -std=c99 -Iinclude" as a line.
+Display "SRCDIR=src" as a line.
+Display "OBJDIR=build/obj" as a line.
+Display "BINDIR=build/bin" as a line.
+Display "" as a line.
+Display "SOURCES=$(wildcard $(SRCDIR)/*.c)" as a line.
+Display "OBJECTS=$(SOURCES:$(SRCDIR)/%.c=$(OBJDIR)/%.o)" as a line.
+Display "TARGET=$(BINDIR)/MyProject" as a line.
+Display "" as a line.
+Display ".PHONY: all clean directories" as a line.
+Display "" as a line.
+Display "all: directories $(TARGET)" as a line.
+Display "" as a line.
+Display "directories:" as a line.
+Display "\t@mkdir -p $(OBJDIR) $(BINDIR)" as a line.
+Display "" as a line.
+Display "$(TARGET): $(OBJECTS)" as a line.
+Display "\t@echo \"Linking $(TARGET)...\"" as a line.
+Display "\t$(CC) $(OBJECTS) -o $@" as a line.
+Display "\t@echo \"Build completed: $(TARGET)\"" as a line.
 Note: [MFE] End of Makefile content
 ```
-
----
 
 ## 📚 Complete Project Examples
 
 ### Control Statement Examples
 
-#### Selection Statements (CS-SS)
+**Selection Statements (CS-SS)**
 Document conditional logic structures:
 
-```pseudocode
+```
 Note: [CS-SS] Multi-way selection for user role
 If the userRole equals "admin" then:
     Note: [PROCESS] Admin-specific operations
@@ -433,10 +461,10 @@ Else, then:
 That's all.
 ```
 
-#### Iteration Statements (CS-IS)
+**Iteration Statements (CS-IS)**
 Document loop structures:
 
-```pseudocode
+```
 Note: [CS-IS] While loop for input validation
 While the input is not valid do:
     Note: [INPUT] Request user input
@@ -452,7 +480,7 @@ That's all.
 
 ### Full C Project with IDE Integration
 
-```pseudocode
+```
 Note: C Project with Full IDE Integration and Build Automation v2.0 - 2025-07-25
 Note: Purpose: Demonstrate complete project setup with IDE configs and build scripts
 
@@ -460,69 +488,43 @@ Note: [START] Begin comprehensive project creation
 
 Note: [1-FOLDER] Create complete directory structure
 Create a folder named CalculatorProject.
-    Note: [FOLDER] Source code organization
-    Inside CalculatorProject, create a folder named src.
-        Note: [FILE] Main application entry point
-        Inside src, create a file named main.c.
-        Note: [FILE] Calculator operations
-        Inside src, create a file named calculator.c.
-    Note: [FOLDER] Header file organization
-    Inside CalculatorProject, create a folder named include.
-        Note: [FILE] Calculator function declarations
-        Inside include, create a file named calculator.h.
-    Note: [FOLDER] Build system organization
-    Inside CalculatorProject, create a folder named build.
-        Inside build, create a folder named obj.
-        Inside build, create a folder named bin.
-    Note: [FOLDER] IDE configuration organization
-    Inside CalculatorProject, create a folder named config.
-        Note: [INI] Embarcadero project file
-        Inside config, create a file named calculator.cbproj.
-        Note: [INI] Geany project file
-        Inside config, create a file named calculator.geany.
-    Note: [FOLDER] Build automation scripts
-    Inside CalculatorProject, create a folder named scripts.
-        Note: [BFB] Build automation batch file
-        Inside scripts, create a file named build.bat.
-        Note: [BFB] Clean automation batch file
-        Inside scripts, create a file named clean.bat.
+Note: [FOLDER] Source code organization
+Inside CalculatorProject, create a folder named src.
+Note: [FILE] Main application entry point
+Inside src, create a file named main.c.
+Note: [FILE] Calculator operations
+Inside src, create a file named calculator.c.
+Note: [FOLDER] Header file organization
+Inside CalculatorProject, create a folder named include.
+Note: [FILE] Calculator function declarations
+Inside include, create a file named calculator.h.
+Note: [FOLDER] Build system organization
+Inside CalculatorProject, create a folder named build.
+Inside build, create a folder named obj.
+Inside build, create a folder named bin.
+Note: [FOLDER] IDE configuration organization
+Inside CalculatorProject, create a folder named config.
+Note: [INI] Embarcadero project file
+Inside config, create a file named calculator.cbproj.
+Note: [INI] Geany project file
+Inside config, create a file named calculator.geany.
+Note: [FOLDER] Build automation scripts
+Inside CalculatorProject, create a folder named scripts.
+Note: [BFB] Build automation batch file
+Inside scripts, create a file named build.bat.
+Note: [BFB] Clean automation batch file
+Inside scripts, create a file named clean.bat.
+```
 
-Note: [2-FILE] Generate source code files
-Set the contents of src/calculator.h to include these declarations:
-    Display "#ifndef CALCULATOR_H" as a line.
-    Display "#define CALCULATOR_H" as a line.
-    Display "" as a line.
-    Display "double add(double a, double b);" as a line.
-    Display "double subtract(double a, double b);" as a line.
-    Display "double multiply(double a, double b);" as a line.
-    Display "double divide(double a, double b);" as a line.
-    Display "" as a line.
-    Display "#endif // CALCULATOR_H" as a line.
+### Graph Traversal Example
 
-Note: [3-INI] Configure IDE project files
-Set the contents of config/calculator.geany to include these settings:
-    Display "[project]" as a line.
-    Display "name=Calculator Project" as a line.
-    Display "base_path=.." as a line.
-    Display "description=Simple calculator with build automation" as a line.
-    Display "" as a line.
-    Display "[build-menu]" as a line.
-    Display "FT_00_LB=_Compile Current" as a line.
-    Display "FT_00_CM=gcc -c \"%f\" -I../include -o ../build/obj/\"%e.o\"" as a line.
-    Display "FT_01_LB=_Build All" as a line.
-    Display "FT_01_CM=cd .. && make" as a line.
-    Display "FT_02_LB=_Execute" as a line.
-    Display "FT_02_CM=cd .. && ./build/bin/calculator" as a line.
-    Display "FT_03_LB=_Clean" as a line.
-    Display "FT_03_CM=cd .. && make clean" as a line.
+```
+Note: [DOCUMENT] Example: Graph traversal using EU and DS abbreviations
 
-Note: [4-MFB] Create comprehensive Makefile
-Set the contents of Makefile to include these build rules:
-    Display "# Calculator Project Makefile" as a line.
-    Display "PROJECT_NAME = calculator" as a line.
-    Display "CC = gcc" as a line.
-    Display "CFLAGS = -Wall -Wextra -std=c99 -Iinclude -g" as a line.
-    Display "LDFLAGS = -lm" as a line.
-    Display "" as a line.
-    Display "SRCDIR = src" as a line.
-    Display "INCDIR
+Create a variable named currentNode of type EU-NODE.
+Create a variable named graph of type DS-GRAPHADJ.
+
+Note: [PROCESS][DS-GRAPHADJ] Traverse graph starting from currentNode
+Set currentNode to call function "get start node" of graph.
+
+Note: [CS-IS] While traversal not co
